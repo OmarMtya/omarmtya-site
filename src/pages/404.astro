@@ -1,0 +1,23 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import NotFound from '../components/NotFound.vue';
+import Footer from '../components/Footer.vue';
+import { getEntry } from 'astro:content';
+
+const enSite = await getEntry('site', 'en');
+const esSite = await getEntry('site', 'es');
+
+if (!enSite || !esSite) {
+  throw new Error("Site data not found");
+}
+
+const siteData = {
+  en: enSite.data,
+  es: esSite.data
+};
+---
+
+<MainLayout title="404 | Omar Montoya">
+	<NotFound client:load siteData={siteData} />
+	<Footer client:visible siteData={siteData} />
+</MainLayout>

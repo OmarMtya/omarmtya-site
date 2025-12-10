@@ -4,39 +4,41 @@
     "status": "SYS.STATUS: ONLINE",
     "location": "LOC: MEXICO",
     "id": "ID: OMAR_MTYA",
-    "label": "// ARCHITECT_PROFILE",
+    "label": "// DEVELOPER_PROFILE",
     "title": "OMAR MONTOYA",
-    "role": "SOLUTIONS ARCHITECT",
-    "description": "Specialized in designing scalable software architectures and high-performance systems. Turning complex requirements into elegant solutions.",
+    "role": "SOFTWARE DEVELOPER",
+    "description": "Building custom solutions powered by AI. From enterprise automation to scalable backends. Turning ideas into reality.",
     "btn_modules": "VIEW_MODULES",
     "btn_github": "GITHUB_REPO"
   },
   "about": {
     "id": "ID: 0x9281",
     "auth": "AUTH: LEVEL_5",
-    "title": "ARCHITECT_PHILOSOPHY",
-    "p1_strong": "Architecture is not just about code; it's about vision.",
-    "p1": "In a world of rapid iteration, I focus on building systems that are resilient, scalable, and maintainable. I don't just write software; I design digital infrastructure that stands the test of time.",
-    "p2": "My approach combines the precision of engineering with the creativity of design. Whether it's a complex frontend engine or a distributed backend system, I ensure every component has a purpose and a place.",
+    "title": "DEVELOPMENT_PHILOSOPHY",
+    "p1_strong": "Code is only as good as the problem it solves.",
+    "p1": "I build software that scales. Whether you're a growing startup or an enterprise looking to modernize, I deliver clean, maintainable solutions that grow with your business. I focus on creating systems that are fast, reliable, and built to last.",
+    "p2": "My expertise spans full-stack development and process automation. I use AI-powered development techniques to accelerate delivery without compromising quality. For enterprises seeking custom solutions from scratch, I architect and build complete backends and frontends. For teams needing automation, I leverage tools like n8n to streamline operations and reduce manual work.",
     "stack_title": "CORE_STACK",
     "stack": [
-      "> Angular",
-      "> Javascript / Typescript",
-      "> Nestjs"
+      "> Angular / Vue",
+      "> TypeScript / JavaScript",
+      "> NestJS / Node.js",
+      "> n8n / Automation"
     ],
     "method_title": "METHODOLOGY",
     "method": [
-      "> Modular Design",
-      "> Clean Architecture",
-      "> Performance First",
-      "> User-Centric"
+      "> Scalable Architecture",
+      "> AI-Driven Development",
+      "> Custom Solutions",
+      "> Process Automation"
     ],
     "certs_title": "// AUTHORIZED_PROTOCOLS (CERTIFICATIONS)",
     "certs": [
       "Vue School - Certified Senior Angular Developer",
       "W3Schools - Node.js",
       "Anthropic - Claude Code in Action",
-      "Coursera/AWS - Architecting Solutions on AWS"
+      "Coursera/AWS - Architecting Solutions on AWS",
+      "n8n - Automation & AI Agents"
     ],
     "viewAllPosts": "View All Articles"
   },
@@ -46,9 +48,15 @@
     "empty_message": "No active projects at the moment.",
     "list": []
   },
+  "notFound": {
+    "code": "404",
+    "title": "SYSTEM_ERROR",
+    "message": "The requested module could not be found in the system memory.",
+    "back_home": "RETURN_TO_BASE"
+  },
   "footer": {
     "brand": "OMAR_MONTOYA",
-    "description": "Designing the future of digital infrastructure. \nBased in Mexico.",
+    "description": "Building scalable software and automating workflows. \nBased in Mexico.",
     "connect_title": "// CONNECT",
     "status_title": "// SYSTEM_STATUS",
     "status_avail_label": "AVAILABILITY:",

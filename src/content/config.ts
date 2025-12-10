@@ -57,6 +57,12 @@ const siteCollection = defineCollection({
         cta: z.string()
       }))
     }),
+    notFound: z.object({
+      code: z.string(),
+      title: z.string(),
+      message: z.string(),
+      back_home: z.string()
+    }),
     footer: z.object({
       brand: z.string(),
       description: z.string(),
