@@ -85,6 +85,7 @@ export default config({
         projects: fields.object({
           title: fields.text({ label: 'Title' }),
           version: fields.text({ label: 'Version' }),
+          empty_message: fields.text({ label: 'Empty Message' }),
           list: fields.array(
             fields.object({
               title: fields.text({ label: 'Title' }),

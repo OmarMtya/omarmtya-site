@@ -1,13 +1,6 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { useHydratedLang } from '../composables/useHydratedLang';
-
-onMounted(() => {
-  const script = document.createElement('script');
-  script.src = "https://platform.twitter.com/widgets.js";
-  script.async = true;
-  document.body.appendChild(script);
-});
 
 const props = defineProps({
   posts: {
@@ -34,8 +27,7 @@ const translations = {
     noPosts: "No posts available yet.",
     prev: "Prev",
     next: "Next",
-    backToHome: "Back to Home",
-    latestUpdates: "Latest Updates"
+    backToHome: "Back to Home"
   },
   es: {
     title: "Blog",
@@ -44,8 +36,7 @@ const translations = {
     noPosts: "No hay publicaciones disponibles aún.",
     prev: "Anterior",
     next: "Siguiente",
-    backToHome: "Regresar al Inicio",
-    latestUpdates: "Últimas Actualizaciones"
+    backToHome: "Regresar al Inicio"
   }
 };
 
@@ -95,12 +86,9 @@ const formatDate = (date) => {
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <!-- Main Content -->
-        <div class="lg:col-span-8">
-          <!-- Posts Grid -->
-          <div v-if="paginatedPosts.length > 0">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <!-- Posts Grid -->
+      <div v-if="paginatedPosts.length > 0">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           <article 
             v-for="post in paginatedPosts" 
             :key="post.slug"
@@ -203,33 +191,6 @@ const formatDate = (date) => {
 
       <div v-else class="text-center text-slate-500 py-12 border border-dashed border-slate-700 rounded-lg">
         {{ t.noPosts }}
-      </div>
-        </div>
-
-        <!-- Sidebar -->
-        <aside class="lg:col-span-4 space-y-8">
-          <div class="bg-[#112240] border border-cyan-500/20 rounded-lg p-6 sticky top-32">
-            <h3 class="text-xl font-bold text-slate-200 mb-6 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
-              </svg>
-              {{ t.latestUpdates }}
-            </h3>
-            
-            <div class="min-h-[400px]">
-              <a 
-                class="twitter-timeline" 
-                data-height="600" 
-                data-theme="dark" 
-                data-chrome="noheader nofooter noborders"
-                data-tweet-limit="5"
-                href="https://twitter.com/omarxcode?ref_src=twsrc%5Etfw"
-              >
-                Tweets by omarxcode
-              </a> 
-            </div>
-          </div>
-        </aside>
       </div>
     </div>
   </div>
