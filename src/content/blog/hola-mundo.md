@@ -5,6 +5,7 @@ description: Simplemente saludando
 author: Omar Montoya
 tags: []
 lang: es
+image: /src/assets/blog/hola-mundo/image.jpg
 ---
 ## Hola!
 
