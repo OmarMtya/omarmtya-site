@@ -45,12 +45,14 @@ const siteCollection = defineCollection({
     projects: z.object({
       title: z.string(),
       version: z.string(),
+      empty_message: z.string().optional(),
       list: z.array(z.object({
         title: z.string(),
         type: z.string(),
         description: z.string(),
         tech: z.array(z.string()),
         link: z.string(),
+        demoLink: z.string().optional(),
         cta: z.string()
       }))
     }),

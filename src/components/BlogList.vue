@@ -26,7 +26,8 @@ const translations = {
     readMore: "Read Article",
     noPosts: "No posts available yet.",
     prev: "Prev",
-    next: "Next"
+    next: "Next",
+    backToHome: "Back to Home"
   },
   es: {
     title: "Blog",
@@ -34,7 +35,8 @@ const translations = {
     readMore: "Leer Artículo",
     noPosts: "No hay publicaciones disponibles aún.",
     prev: "Anterior",
-    next: "Siguiente"
+    next: "Siguiente",
+    backToHome: "Regresar al Inicio"
   }
 };
 
@@ -67,6 +69,10 @@ const formatDate = (date) => {
 <template>
   <div class="min-h-screen bg-blueprint-bg pt-32 pb-20">
     <div class="max-w-7xl mx-auto px-4">
+      <a href="/" class="inline-flex items-center gap-2 text-cyan-400 mb-8 hover:underline decoration-cyan-400/50 underline-offset-4">
+        &larr; {{ t.backToHome }}
+      </a>
+
       <!-- Header -->
       <div class="text-center mb-16">
         <div class="inline-flex items-center gap-3 text-cyan-400 mb-4">
