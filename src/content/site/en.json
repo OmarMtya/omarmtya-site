@@ -33,7 +33,10 @@
     ],
     "certs_title": "// AUTHORIZED_PROTOCOLS (CERTIFICATIONS)",
     "certs": [
-      "Certified Senior Angular Developer"
+      "Vue School - Certified Senior Angular Developer",
+      "W3Schools - Node.js",
+      "Anthropic - Claude Code in Action",
+      "Coursera/AWS - Architecting Solutions on AWS"
     ],
     "viewAllPosts": "View All Articles"
   },
