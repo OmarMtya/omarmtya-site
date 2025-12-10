@@ -19,13 +19,13 @@ const $lang = useHydratedLang();
 const translations = {
   en: {
     title: "Latest Insights",
-    subtitle: "Thoughts on Architecture & Engineering",
+    subtitle: "Thoughts and articles",
     readMore: "Read Article",
     noPosts: "No posts available yet."
   },
   es: {
     title: "Últimas Publicaciones",
-    subtitle: "Pensamientos sobre Arquitectura e Ingeniería",
+    subtitle: "Pensamientos y artículos",
     readMore: "Leer Artículo",
     noPosts: "No hay publicaciones disponibles aún."
   }
