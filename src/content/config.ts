@@ -1,8 +1,9 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const blogCollection = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
@@ -10,7 +11,7 @@ const blogCollection = defineCollection({
     tags: z.array(z.string()),
     draft: z.boolean().default(false),
     lang: z.enum(['en', 'es']).default('en'),
-    image: z.string().optional(),
+    image: image().optional(),
   }),
 });
 

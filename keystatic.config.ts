@@ -35,7 +35,7 @@ export default config({
         image: fields.image({ 
           label: 'Cover Image',
           directory: 'src/assets/blog',
-          publicPath: '/src/assets/blog/'
+          publicPath: '../../assets/blog/'
         }),
         content: fields.markdoc({
           label: 'Content',
