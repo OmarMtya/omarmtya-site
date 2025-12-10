@@ -6,16 +6,30 @@ import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
 import tailwindcss from '@tailwindcss/vite';
 import node from '@astrojs/node';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://omarmtya.com',
   adapter: node({
     mode: 'standalone'
   }),
   integrations: [
     vue(),
     react(),
-    keystatic()
+    keystatic(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-US',
+          es: 'es-MX',
+        },
+      },
+      filter: (page) => 
+        !page.includes('/keystatic') && 
+        !page.includes('/api/')
+    })
   ],
   env: {
     schema: {

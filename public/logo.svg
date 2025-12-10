@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #112240; }
+    .fg { fill: #64ffda; font-family: 'Courier New', monospace; font-weight: bold; font-size: 280px; }
+    .border { stroke: #64ffda; stroke-width: 15; fill: none; }
+    .grid { stroke: #64ffda; stroke-width: 2; opacity: 0.2; }
+  </style>
+  
+  <!-- Background -->
+  <rect x="25" y="25" width="462" height="462" rx="110" class="bg" />
+  
+  <!-- Grid/Blueprint Accent -->
+  <path d="M50 153 H462 M50 256 H462 M50 358 H462 M153 50 V462 M256 50 V462 M358 50 V462" class="grid" />
+  
+  <!-- Border -->
+  <rect x="25" y="25" width="462" height="462" rx="110" class="border" />
+  
+  <!-- Monogram -->
+  <text x="256" y="350" text-anchor="middle" class="fg">OM</text>
+  
+  <!-- Tech Dot -->
+  <circle cx="410" cy="100" r="20" fill="#64ffda" />
+</svg>

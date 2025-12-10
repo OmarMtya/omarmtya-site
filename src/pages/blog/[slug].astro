@@ -19,9 +19,44 @@ const translations = {
 };
 
 const t = translations[entry.data.lang] || translations.en;
+
+// Preparar datos para Schema.org
+const siteUrl = Astro.site || 'https://omarmtya.com';
+const articleURL = new URL(`/blog/${entry.slug}`, siteUrl).href;
+const imageURL = entry.data.image 
+  ? (typeof entry.data.image === 'string' 
+      ? new URL(entry.data.image, siteUrl).href 
+      : entry.data.image.src)
+  : undefined;
+
+const schemaData = {
+  title: entry.data.title,
+  description: entry.data.description,
+  url: articleURL,
+  image: imageURL,
+  author: entry.data.author,
+  pubDate: entry.data.pubDate,
+  modDate: entry.data.modDate,
+  tags: entry.data.tags,
+  lang: entry.data.lang
+};
 ---
 
-<MainLayout title={`${entry.data.title} | Omar Montoya`} hideLanguageSwitcher={true}>
+<MainLayout 
+  title={`${entry.data.title} | Omar Montoya`} 
+  description={entry.data.description}
+  image={imageURL}
+  imageAlt={entry.data.title}
+  lang={entry.data.lang}
+  type="article"
+  author={entry.data.author}
+  pubDate={entry.data.pubDate}
+  modDate={entry.data.modDate}
+  tags={entry.data.tags}
+  canonical={articleURL}
+  hideLanguageSwitcher={true}
+  schemaData={schemaData}
+>
   <article class="py-32 min-h-screen relative overflow-hidden">
      <!-- Background Grid -->
      <div class="absolute inset-0 pointer-events-none opacity-5"

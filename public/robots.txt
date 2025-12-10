@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Bloquear archivos sensibles
+Disallow: /keystatic/
+Disallow: /_astro/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://omarmtya.com/sitemap-index.xml

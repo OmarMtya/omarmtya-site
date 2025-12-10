@@ -1,24 +1,79 @@
 ---
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.vue';
+import SEO from '../components/SEO.astro';
+import SchemaOrg, { type WebsiteSchema, type ArticleSchema } from '../components/SchemaOrg.astro';
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	imageAlt?: string;
+	lang?: 'en' | 'es';
 	hideLanguageSwitcher?: boolean;
+	// SEO específico para artículos
+	type?: 'website' | 'article';
+	author?: string;
+	pubDate?: Date;
+	modDate?: Date;
+	tags?: string[];
+	canonical?: string;
+	noindex?: boolean;
+	// Schema.org data
+	schemaData?: WebsiteSchema | ArticleSchema;
 }
 
-const { title, hideLanguageSwitcher = false } = Astro.props;
+const { 
+	title, 
+	description = 'Omar Montoya - Solutions Architect & Full-Stack Developer. Building custom software solutions powered by AI, from enterprise automation to scalable backends.',
+	image,
+	imageAlt,
+	lang = 'en',
+	hideLanguageSwitcher = false,
+	type = 'website',
+	author,
+	pubDate,
+	modDate,
+	tags,
+	canonical,
+	noindex = false,
+	schemaData
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Omar Montoya - Solutions Architect Portfolio" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		
+		<!-- SEO Component -->
+		<SEO 
+			title={title}
+			description={description}
+			image={image}
+			imageAlt={imageAlt}
+			lang={lang}
+			type={type}
+			author={author}
+			pubDate={pubDate}
+			modDate={modDate}
+			tags={tags}
+			canonical={canonical}
+			noindex={noindex}
+		/>
+
+		<!-- Schema.org Structured Data -->
+		{schemaData && (
+			<SchemaOrg 
+				type={type}
+				data={schemaData}
+			/>
+		)}
+		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">

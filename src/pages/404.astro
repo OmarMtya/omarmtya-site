@@ -17,7 +17,11 @@ const siteData = {
 };
 ---
 
-<MainLayout title="404 | Omar Montoya">
+<MainLayout 
+  title="404 - Page Not Found | Omar Montoya"
+  description="The page you are looking for does not exist."
+  noindex={true}
+>
 	<NotFound client:load siteData={siteData} />
 	<Footer client:visible siteData={siteData} />
 </MainLayout>

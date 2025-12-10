@@ -19,9 +19,29 @@ const siteData = {
   en: enSite.data,
   es: esSite.data
 };
+
+// Schema.org data para la homepage
+const siteUrl = Astro.site || 'https://omarmtya.com';
+const schemaData = {
+  name: "Omar Montoya",
+  description: "Solutions Architect & Full-Stack Developer. Building custom software solutions powered by AI, from enterprise automation to scalable backends.",
+  url: siteUrl.toString(),
+  logo: new URL('/logo.svg', siteUrl).href,
+  author: {
+    name: "Omar Montoya",
+    jobTitle: "Solutions Architect & Software Developer",
+    url: siteUrl.toString()
+  }
+};
 ---
 
-<MainLayout title="Omar Montoya | Solutions Architect">
+<MainLayout 
+  title="Omar Montoya | Solutions Architect & Full-Stack Developer"
+  description="Solutions Architect & Full-Stack Developer specializing in AI-powered development, enterprise automation, and scalable backends. Custom software solutions with Angular, Vue, NestJS, and n8n."
+  lang="en"
+  type="website"
+  schemaData={schemaData}
+>
 	<Hero client:load siteData={siteData} />
 	<About client:visible siteData={siteData} />
 	<Projects client:visible siteData={siteData} />

@@ -12,6 +12,10 @@ const blogCollection = defineCollection({
     draft: z.boolean().default(false),
     lang: z.enum(['en', 'es']).default('en'),
     image: image().optional(),
+    // SEO fields
+    modDate: z.date().optional(), // Para article:modified_time
+    imageAlt: z.string().optional(), // Alt text para imagen
+    canonical: z.string().url().optional(), // URL canónica personalizada si es necesario
   }),
 });
 

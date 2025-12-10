@@ -1,0 +1,109 @@
+---
+export interface WebsiteSchema {
+	name: string;
+	description: string;
+	url: string;
+	logo?: string;
+	author: {
+		name: string;
+		jobTitle: string;
+		url: string;
+	};
+}
+
+export interface ArticleSchema {
+	title: string;
+	description: string;
+	url: string;
+	image?: string;
+	author: string;
+	pubDate: Date;
+	modDate?: Date;
+	tags?: string[];
+	lang: string;
+}
+
+export interface Props {
+	type: 'website' | 'article';
+	data: WebsiteSchema | ArticleSchema;
+}
+
+const { type, data } = Astro.props;
+
+const siteUrl = Astro.site || 'https://omarmtya.com';
+
+let schema: any;
+
+if (type === 'website') {
+	const websiteData = data as WebsiteSchema;
+	schema = {
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": websiteData.name,
+		"description": websiteData.description,
+		"url": websiteData.url,
+		"inLanguage": ["en", "es"],
+		"author": {
+			"@type": "Person",
+			"name": websiteData.author.name,
+			"jobTitle": websiteData.author.jobTitle,
+			"url": websiteData.author.url,
+			"sameAs": [
+				"https://github.com/omarmtya",
+				"https://x.com/omarxcode",
+				"https://linkedin.com/in/omarmtya"
+			]
+		},
+		...(websiteData.logo && {
+			"logo": {
+				"@type": "ImageObject",
+				"url": websiteData.logo.startsWith('http') ? websiteData.logo : new URL(websiteData.logo, siteUrl).href
+			}
+		})
+	};
+} else if (type === 'article') {
+	const articleData = data as ArticleSchema;
+	const imageURL = articleData.image 
+		? (articleData.image.startsWith('http') ? articleData.image : new URL(articleData.image, siteUrl).href)
+		: undefined;
+	
+	schema = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": articleData.title,
+		"description": articleData.description,
+		"url": articleData.url,
+		"datePublished": articleData.pubDate.toISOString(),
+		...(articleData.modDate && { "dateModified": articleData.modDate.toISOString() }),
+		"author": {
+			"@type": "Person",
+			"name": articleData.author,
+			"url": new URL('/', siteUrl).href
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Omar Montoya",
+			"logo": {
+				"@type": "ImageObject",
+				"url": new URL('/logo.png', siteUrl).href // Crear logo
+			}
+		},
+		"inLanguage": articleData.lang,
+		...(imageURL && {
+			"image": {
+				"@type": "ImageObject",
+				"url": imageURL
+			}
+		}),
+		...(articleData.tags && articleData.tags.length > 0 && {
+			"keywords": articleData.tags.join(', ')
+		}),
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": articleData.url
+		}
+	};
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
