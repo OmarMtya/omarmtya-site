@@ -1,4 +1,5 @@
 {
+  "language": "",
   "hero": {
     "status": "ESTADO.SIS: EN LÍNEA",
     "location": "UBIC: MÉXICO",
@@ -18,42 +19,29 @@
     "p1": "En un mundo de iteración rápida, me enfoco en construir sistemas resilientes, escalables y mantenibles. No solo escribo software; diseño infraestructura digital que perdura en el tiempo.",
     "p2": "Mi enfoque combina la precisión de la ingeniería con la creatividad del diseño. Ya sea un motor frontend complejo o un sistema backend distribuido, aseguro que cada componente tenga un propósito y un lugar.",
     "stack_title": "STACK_PRINCIPAL",
-    "stack": ["> JavaScript / TypeScript", "> Vue.js / React", "> Arquitectura Node.js", "> Diseño de Sistemas"],
+    "stack": [
+      "> Angular",
+      "> JavaScript / TypeScript",
+      "> Arquitectura Node.js",
+      "Nestjs"
+    ],
     "method_title": "METODOLOGÍA",
-    "method": ["> Diseño Modular", "> Arquitectura Limpia", "> Rendimiento Primero", "> Centrado en Usuario"],
+    "method": [
+      "> Diseño Modular",
+      "> Arquitectura Limpia",
+      "> Rendimiento Primero",
+      "> Centrado en Usuario"
+    ],
     "certs_title": "// PROTOCOLOS_AUTORIZADOS (CERTIFICACIONES)",
-    "certs": ["AWS Certified Solutions Architect", "Meta Frontend Developer", "Google Cloud Engineer"],
+    "certs": [
+      "Certified Senior Angular Developer"
+    ],
     "viewAllPosts": "Ver Todos los Artículos"
   },
   "projects": {
     "title": "MÓDULOS_DEL_SISTEMA",
     "version": "v1.0.0",
-    "list": [
-      {
-        "title": "Engine.js",
-        "type": "LIBRERÍA",
-        "description": "Un motor de interfaz JavaScript de alto rendimiento para construir aplicaciones web modulares sin dependencias.",
-        "tech": ["JavaScript", "Core", "Rendimiento"],
-        "link": "#",
-        "cta": "INICIAR_DEMO"
-      },
-      {
-        "title": "Countdown Timer",
-        "type": "UTILIDAD",
-        "description": "Utilidad de cronometraje de precisión para gestión de recursos y seguimiento de eventos. Construido con precisión y mínima sobrecarga.",
-        "tech": ["Vue.js", "Gestión de Estado"],
-        "link": "#",
-        "cta": "INICIAR_DEMO"
-      },
-      {
-        "title": "Portafolio Arquitecto",
-        "type": "WEBAPP",
-        "description": "El sistema actual que estás viendo. Construido con Astro y Vue para demostrar arquitectura de componentes moderna.",
-        "tech": ["Astro", "Vue", "Tailwind"],
-        "link": "#",
-        "cta": "INICIAR_DEMO"
-      }
-    ]
+    "list": []
   },
   "footer": {
     "brand": "OMAR_MONTOYA",
