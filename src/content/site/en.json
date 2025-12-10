@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "status": "SYS.STATUS: ONLINE",
+    "location": "LOC: MEXICO",
+    "id": "ID: OMAR_MTYA",
+    "label": "// ARCHITECT_PROFILE",
+    "title": "OMAR MONTOYA",
+    "role": "SOLUTIONS ARCHITECT",
+    "description": "Specialized in designing scalable software architectures and high-performance frontend systems. Turning complex requirements into elegant, modular blueprints.",
+    "btn_modules": "VIEW_MODULES",
+    "btn_github": "GITHUB_REPO"
+  },
+  "about": {
+    "id": "ID: 0x9281",
+    "auth": "AUTH: LEVEL_5",
+    "title": "ARCHITECT_PHILOSOPHY",
+    "p1_strong": "Architecture is not just about code; it's about vision.",
+    "p1": "In a world of rapid iteration, I focus on building systems that are resilient, scalable, and maintainable. I don't just write software; I design digital infrastructure that stands the test of time.",
+    "p2": "My approach combines the precision of engineering with the creativity of design. Whether it's a complex frontend engine or a distributed backend system, I ensure every component has a purpose and a place.",
+    "stack_title": "CORE_STACK",
+    "stack": ["> JavaScript / TypeScript", "> Vue.js / React", "> Node.js Architecture", "> System Design"],
+    "method_title": "METHODOLOGY",
+    "method": ["> Modular Design", "> Clean Architecture", "> Performance First", "> User-Centric"],
+    "certs_title": "// AUTHORIZED_PROTOCOLS (CERTIFICATIONS)",
+    "certs": ["AWS Certified Solutions Architect", "Meta Frontend Developer", "Google Cloud Engineer"],
+    "viewAllPosts": "View All Articles"
+  },
+  "projects": {
+    "title": "SYSTEM_MODULES",
+    "version": "v1.0.0",
+    "list": [
+      {
+        "title": "Engine.js",
+        "type": "LIBRARY",
+        "description": "A high-performance JavaScript interface engine for building modular web applications with zero dependencies.",
+        "tech": ["JavaScript", "Core", "Performance"],
+        "link": "#",
+        "cta": "INITIALIZE_DEMO"
+      },
+      {
+        "title": "Countdown Timer",
+        "type": "UTILITY",
+        "description": "Precision timing utility for resource management and event tracking. Built with accuracy and minimal overhead in mind.",
+        "tech": ["Vue.js", "State Management"],
+        "link": "#",
+        "cta": "INITIALIZE_DEMO"
+      },
+      {
+        "title": "Architect Portfolio",
+        "type": "WEBAPP",
+        "description": "The current system you are viewing. Built with Astro and Vue to demonstrate modern component architecture.",
+        "tech": ["Astro", "Vue", "Tailwind"],
+        "link": "#",
+        "cta": "INITIALIZE_DEMO"
+      }
+    ]
+  },
+  "footer": {
+    "brand": "OMAR_MONTOYA",
+    "description": "Designing the future of digital infrastructure. \nBased in Mexico.",
+    "connect_title": "// CONNECT",
+    "status_title": "// SYSTEM_STATUS",
+    "status_avail_label": "AVAILABILITY:",
+    "status_avail_value": "OPEN_TO_WORK",
+    "status_update_label": "LAST_UPDATE:",
+    "status_update_value": "DEC_2025",
+    "status_version_label": "VERSION:",
+    "status_version_value": "2.0.4-RC",
+    "copyright": "© 2025 Omar Montoya. All systems operational."
+  }
+}

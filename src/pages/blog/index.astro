@@ -1,0 +1,17 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+import BlogList from '../../components/BlogList.vue';
+
+const POSTS_PER_PAGE = 9;
+
+// Get current page from URL params
+const currentPage = Number(Astro.url.searchParams.get('page') || '1');
+
+// Get all blog posts
+const allPosts = await getCollection('blog');
+---
+
+<MainLayout title="Blog | Omar Montoya">
+  <BlogList client:load posts={allPosts} currentPage={currentPage} postsPerPage={POSTS_PER_PAGE} />
+</MainLayout>

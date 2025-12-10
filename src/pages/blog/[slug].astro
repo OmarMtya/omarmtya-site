@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<MainLayout title={`${entry.data.title} | Omar Montoya`}>
+  <article class="py-32 min-h-screen relative overflow-hidden">
+     <!-- Background Grid -->
+     <div class="absolute inset-0 pointer-events-none opacity-5"
+     style="background-image: linear-gradient(#64ffda 1px, transparent 1px), linear-gradient(90deg, #64ffda 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4 relative z-10">
+      <a href="/blog" class="inline-flex items-center gap-2 text-cyan-400 mb-8 hover:underline decoration-cyan-400/50 underline-offset-4">
+        &larr; Back to Blog
+      </a>
+
+      <header class="mb-12 border-b border-cyan-500/30 pb-8">
+        <div class="flex items-center gap-4 text-sm text-cyan-300 font-mono mb-4">
+          <time datetime={entry.data.pubDate.toISOString()}>
+            {entry.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <span>•</span>
+          <span>{entry.data.author}</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight">
+          {entry.data.title}
+        </h1>
+        <div class="flex gap-2">
+          {entry.data.tags.map(tag => (
+            <span class="px-3 py-1 text-xs font-mono text-cyan-300 border border-cyan-500/30 rounded-full bg-cyan-900/10">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      </header>
+
+      <div class="prose prose-invert prose-cyan max-w-none prose-headings:text-slate-100 prose-p:text-slate-400 prose-a:text-cyan-400 hover:prose-a:text-cyan-300 prose-code:text-cyan-300 prose-pre:bg-[#112240] prose-pre:border prose-pre:border-cyan-500/20">
+        <Content />
+      </div>
+    </div>
+  </article>
+</MainLayout>
