@@ -6,4 +6,4 @@ author: Omar Montoya
 tags: []
 lang: en
 ---
-![](../../assets/blog/probando/tesla-and-einstein-meme-but-medic-and-engi-v0-7lv98092z2ub1.jpg)
+![](../../assets/blog/probando/coraje_ojos_arreglados.png)
