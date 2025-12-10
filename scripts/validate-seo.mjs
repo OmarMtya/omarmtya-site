@@ -50,8 +50,8 @@ if (existsSync('public/robots.txt')) {
 // 3. Verificar imágenes requeridas
 console.log('🖼️  Verificando imágenes...');
 const requiredImages = [
-  { path: 'public/og-default.png', desc: 'Imagen Open Graph por defecto' },
-  { path: 'public/logo.png', desc: 'Logo para Schema.org' },
+  { path: 'public/og-default.svg', desc: 'Imagen Open Graph por defecto' },
+  { path: 'public/logo.svg', desc: 'Logo para Schema.org' },
   { path: 'public/favicon.svg', desc: 'Favicon del sitio' }
 ];
 
