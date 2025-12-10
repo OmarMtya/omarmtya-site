@@ -29,11 +29,6 @@
         </a>
       </div>
     </div>
-
-    <!-- Decorative technical lines -->
-    <div class="absolute bottom-10 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--color-blueprint-grid)] to-transparent"></div>
-    <div class="absolute bottom-10 left-[20%] w-2 h-2 bg-[var(--color-blueprint-accent)]"></div>
-    <div class="absolute bottom-10 right-[20%] w-2 h-2 bg-[var(--color-blueprint-accent)]"></div>
   </section>
 </template>
 
