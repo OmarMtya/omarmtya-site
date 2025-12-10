@@ -40,6 +40,7 @@
   "projects": {
     "title": "SYSTEM_MODULES",
     "version": "v1.0.0",
+    "empty_message": "No active projects at the moment.",
     "list": []
   },
   "footer": {
