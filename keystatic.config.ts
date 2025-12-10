@@ -43,7 +43,7 @@ export default config({
           options: {
             image: {
               directory: 'src/assets/blog',
-              publicPath: '/src/assets/blog/'
+              publicPath: '../../assets/blog/'
             }
           }
         }),

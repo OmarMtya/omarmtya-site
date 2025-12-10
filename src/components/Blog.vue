@@ -82,11 +82,16 @@ const formatDate = (date) => {
           :key="post.slug"
           class="group relative bg-[#112240] border border-cyan-500/20 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(100,255,218,0.1)]"
         >
-          <!-- Image Placeholder or Actual Image -->
+          <!-- Image -->
           <div class="h-48 bg-[#0a192f] relative overflow-hidden">
-            <div class="absolute inset-0 bg-cyan-500/10 group-hover:bg-transparent transition-colors duration-300"></div>
-            <!-- If you have images, use them here. For now, a pattern -->
-            <div class="absolute inset-0 opacity-20" 
+            <img 
+              v-if="post.data.image"
+              :src="post.data.image.src" 
+              :alt="post.data.title"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div v-else class="absolute inset-0 bg-cyan-500/10 group-hover:bg-transparent transition-colors duration-300"></div>
+            <div v-if="!post.data.image" class="absolute inset-0 opacity-20" 
                  style="background-image: radial-gradient(#64ffda 1px, transparent 1px); background-size: 10px 10px;">
             </div>
           </div>
@@ -97,9 +102,11 @@ const formatDate = (date) => {
               {{ formatDate(post.data.pubDate) }}
             </div>
 
-            <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-cyan-400 transition-colors line-clamp-2">
-              {{ post.data.title }}
-            </h3>
+            <a :href="`/blog/${post.slug}`">
+              <h3 class="text-xl font-bold text-slate-200 mb-3 group-hover:text-cyan-400 transition-colors line-clamp-2 cursor-pointer">
+                {{ post.data.title }}
+              </h3>
+            </a>
 
             <p class="text-slate-400 text-sm mb-6 line-clamp-3">
               {{ post.data.description }}
