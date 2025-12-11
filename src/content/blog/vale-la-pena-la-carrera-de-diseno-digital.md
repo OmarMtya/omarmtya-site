@@ -1,7 +1,7 @@
 ---
 title: ¿Vale la pena la carrera de Diseño Digital?
 pubDate: 2025-12-10T23:12:00.000Z
-description: Describo como fue mi experiencia en la universidad
+description: Describo cómo fue mi experiencia en la UACJ
 author: Omar Montoya
 tags:
   - opiniones
