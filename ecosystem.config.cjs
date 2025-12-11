@@ -1,4 +1,7 @@
 // PM2 configuration for production
+// Load .env file if exists
+require('fs').existsSync('.env') && require('dotenv').config();
+
 module.exports = {
   apps: [{
     name: 'omarmtya-site',
@@ -9,7 +12,7 @@ module.exports = {
       NODE_ENV: 'production',
       HOST: '0.0.0.0',
       PORT: 4321,
-      // Keystatic environment variables - load from .env or set here
+      // Keystatic environment variables
       KEYSTATIC_GITHUB_CLIENT_ID: process.env.KEYSTATIC_GITHUB_CLIENT_ID,
       KEYSTATIC_GITHUB_CLIENT_SECRET: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
       KEYSTATIC_SECRET: process.env.KEYSTATIC_SECRET,

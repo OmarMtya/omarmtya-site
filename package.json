@@ -19,6 +19,7 @@
     "@nanostores/vue": "^1.0.1",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.16.5",
+    "dotenv": "^17.2.3",
     "lucide-vue-next": "^0.559.0",
     "nanostores": "^1.1.0",
     "react": "^19.2.1",
