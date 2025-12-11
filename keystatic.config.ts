@@ -98,6 +98,12 @@ export default config({
             { label: 'Projects List' }
           ),
         }, { label: 'Projects Section' }),
+        notFound: fields.object({
+          code: fields.text({ label: 'Error Code' }),
+          title: fields.text({ label: 'Error Title' }),
+          message: fields.text({ label: 'Error Message', multiline: true }),
+          back_home: fields.text({ label: 'Back Home Button' }),
+        }, { label: 'Not Found (404) Section' }),
         footer: fields.object({
           brand: fields.text({ label: 'Brand' }),
           description: fields.text({ label: 'Description', multiline: true }),
