@@ -6,6 +6,7 @@ author: Omar Montoya
 tags:
   - opiniones
 lang: es
+image: ../../assets/blog/vale-la-pena-la-carrera-de-diseno-digital/image.jpg
 ---
 # ¿Cómo elegí DDMI? Mi historia entre diseño, desarrollo y muchos tropiezos
 
