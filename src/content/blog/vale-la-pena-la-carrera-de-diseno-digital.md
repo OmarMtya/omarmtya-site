@@ -114,3 +114,18 @@ Y muchos recorren un camino como el mío, pero al revés: aman el diseño y sufr
 
 No es una carrera especializada: es una caja de herramientas.\
 Y lo que hagas con esas herramientas depende totalmente de ti.
+
+#### Un último consejo sobre los Hackathones de DDMI
+
+Antes de cerrar, quiero darte un consejo que ojalá alguien me hubiera dado a mí: **si algún día participas en el Hackathon de DDMI (ese evento anual que algunos profesores tratan casi como requisito), no te desgastes desarrollando. Diseña**.
+
+En serio.\
+El 100% de los hackathones en los que participé se evaluaban por su documentación y su presentación visual, no por el código. Recuerdo que una vez hice una aplicación completa, incluso un juego multiplayer —fue un dolor de cabeza— y aun así ganó el equipo que tenía el diseño más bonito.
+
+Ahí es donde se refleja claramente el espíritu de la carrera: **no se trata del desarrollo, sino de lo que presentas**.
+
+En mis tiempos eran 30 horas seguidas sin dormir. En mi último hackathon, ya en plena pandemia, trabajamos por Teams, hicimos únicamente el diseño (y un video de una demo, que en el fondo estaba todo bugueado, pero para demo servía bastante)… y aun así ganamos segundo lugar. Sin desveladas, sin rompernos la cabeza programando.
+
+Ese es el punto: **en DDMI no gana quien programa mejor**, gana quien comunica mejor.
+
+Ahora, con todo el auge de la IA y el coding asistido, no sé cómo se viva actualmente. Pero esa fue mi experiencia, y creo que vale la pena que la tengas en mente.
