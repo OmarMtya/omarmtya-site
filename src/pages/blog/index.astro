@@ -3,7 +3,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
 import BlogListLight from '../../components/BlogListLight.vue';
 
-const POSTS_PER_PAGE = 1;
+const POSTS_PER_PAGE = 10;
 
 // Get current page from URL params
 const currentPage = Number(Astro.url.searchParams.get('page') || '1');
