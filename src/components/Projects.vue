@@ -1,7 +1,7 @@
 <template>
   <section id="projects" class="py-20 relative">
     <div class="flex items-center gap-4 mb-12 reveal-on-scroll overflow-hidden" ref="headerRef">
-      <h2 class="text-3xl font-bold text-white truncate">{{ content.title }}</h2>
+      <h2 class="text-3xl font-bold text-white">{{ content.title }}</h2>
       <div class="h-px flex-grow bg-[var(--color-blueprint-grid)] shrink-0"></div>
       <span class="text-[var(--color-blueprint-accent)] text-sm shrink-0">{{ content.version }}</span>
     </div>

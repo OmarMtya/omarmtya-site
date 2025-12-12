@@ -27,9 +27,9 @@
 
       <!-- Bio Text -->
       <div ref="textRef" class="reveal-on-scroll">
-        <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3 overflow-hidden">
+        <h2 class="text-3xl font-bold text-white mb-6 flex gap-3 overflow-hidden">
           <span class="text-[var(--color-blueprint-accent)] shrink-0">//</span> 
-          <span class="truncate">{{ content.title }}</span>
+          <span>{{ content.title }}</span>
         </h2>
         
         <div class="space-y-6 text-slate-400 leading-relaxed">

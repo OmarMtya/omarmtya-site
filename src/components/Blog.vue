@@ -64,7 +64,7 @@ const formatDate = (date) => {
         <div class="h-px flex-1 bg-cyan-500/30 min-w-0"></div>
         <a href="/blog" class="text-3xl md:text-4xl font-bold text-cyan-400 flex items-center gap-3 hover:text-cyan-300 transition-colors group min-w-0">
           <BookOpen class="w-8 h-8 shrink-0 group-hover:scale-110 transition-transform" />
-          <span class="truncate">{{ t.title }}</span>
+          <span>{{ t.title }}</span>
         </a>
         <div class="h-px flex-1 bg-cyan-500/30 min-w-0"></div>
       </div>
