@@ -100,7 +100,7 @@ const {
 	</head>
 	<body class="relative overflow-x-hidden bg-[#FFFEF8] text-slate-900 font-sans antialiased selection:bg-yellow-200 selection:text-black">
 		
-		{!hideLanguageSwitcher && <LanguageSwitcher client:load variant="minimal" />}
+		{!hideLanguageSwitcher && <LanguageSwitcher client:only="vue" variant="minimal" />}
 
 		<main class="relative z-10 container mx-auto px-4 pb-8 pt-0">
 			<slot />
