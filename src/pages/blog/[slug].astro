@@ -24,10 +24,12 @@ const t = translations[entry.data.lang] || translations.en;
 // Preparar datos para Schema.org
 const siteUrl = Astro.site || 'https://omarmtya.com';
 const articleURL = new URL(`/blog/${entry.slug}`, siteUrl).href;
+
+// Convertir la imagen a URL absoluta para Open Graph/Twitter
 const imageURL = entry.data.image 
   ? (typeof entry.data.image === 'string' 
       ? new URL(entry.data.image, siteUrl).href 
-      : entry.data.image.src)
+      : new URL(entry.data.image.src, siteUrl).href)  // Convertir a URL absoluta
   : undefined;
 
 const schemaData = {
