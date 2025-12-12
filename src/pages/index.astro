@@ -42,10 +42,10 @@ const schemaData = {
   type="website"
   schemaData={schemaData}
 >
-	<Hero client:load siteData={siteData} />
-	<About client:visible siteData={siteData} />
-	<Projects client:visible siteData={siteData} />
-	<Blog client:visible posts={posts} siteData={siteData} />
-	<Footer client:visible siteData={siteData} />
+	<Hero client:only="vue" siteData={siteData} />
+	<About client:only="vue" siteData={siteData} />
+	<Projects client:only="vue" siteData={siteData} />
+	<Blog client:only="vue" posts={posts} siteData={siteData} />
+	<Footer client:only="vue" siteData={siteData} />
 </MainLayout>
 

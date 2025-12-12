@@ -77,31 +77,16 @@ const {
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 		
-		<!-- Initialize language before Vue hydration to prevent flash of wrong language -->
+		<!-- Fade-in to prevent flash of unstyled content -->
 		<script is:inline>
-			// Detect and set language from localStorage or browser preference
-			(function() {
-				let lang = 'en';
-				
-				if (localStorage.getItem('lang')) {
-					lang = localStorage.getItem('lang');
-				} else if (navigator.language.startsWith('es')) {
-					lang = 'es';
-				}
-				
-				// Store in a temporary global that nanostores can read
-				window.__INITIAL_LANG__ = lang;
-				
-				// Add class to body to enable fade-in after hydration
-				document.addEventListener('DOMContentLoaded', function() {
-					// Double rAF ensures Vue has hydrated and browser has painted
+			document.addEventListener('DOMContentLoaded', function() {
+				// Double rAF ensures Vue has hydrated and browser has painted
+				requestAnimationFrame(function() {
 					requestAnimationFrame(function() {
-						requestAnimationFrame(function() {
-							document.body.classList.add('lang-ready');
-						});
+						document.body.classList.add('lang-ready');
 					});
 				});
-			})();
+			});
 		</script>
 		<style is:inline>
 			body:not(.lang-ready) {

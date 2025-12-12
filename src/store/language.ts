@@ -1,23 +1,28 @@
 import { atom } from 'nanostores';
 
-// Initialize with value from inline script if available, otherwise default to 'en'
-const initialLang = (typeof window !== 'undefined' && (window as any).__INITIAL_LANG__) || 'en';
-export const currentLang = atom<'en' | 'es'>(initialLang);
+// Detect initial language on client-side only
+function getInitialLang(): 'en' | 'es' {
+  if (typeof window === 'undefined') return 'en';
+  
+  // Read from localStorage first
+  const stored = localStorage.getItem('lang');
+  if (stored === 'en' || stored === 'es') {
+    return stored;
+  }
+  
+  // Fallback to browser language
+  if (navigator.language.startsWith('es')) {
+    return 'es';
+  }
+  
+  return 'en';
+}
+
+export const currentLang = atom<'en' | 'es'>(getInitialLang());
 
 export const initLanguage = () => {
-  if (typeof window === 'undefined') return;
-  
-  let lang: 'en' | 'es' = 'en';
-  
-  if (localStorage.getItem('lang')) {
-    lang = localStorage.getItem('lang') as 'en' | 'es';
-  } else if (navigator.language.startsWith('es')) {
-    lang = 'es';
-  }
-
-  if (lang !== currentLang.get()) {
-    currentLang.set(lang);
-  }
+  // This is now a no-op since initialization happens in getInitialLang
+  // Kept for backward compatibility
 };
 
 export const setLang = (lang: 'en' | 'es') => {
