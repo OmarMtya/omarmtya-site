@@ -6,6 +6,7 @@
   --color-blueprint-grid: rgba(100, 255, 218, 0.1);
   --color-blueprint-accent: #64ffda;
   --font-mono: 'Fira Code', monospace;
+  --font-display: 'Outfit', sans-serif;
 }
 
 @layer utilities {
@@ -43,9 +44,13 @@
 }
 
 body {
-  @apply text-slate-300 font-mono antialiased;
-  background-color: var(--color-blueprint-bg);
+  @apply antialiased;
   min-height: 100vh;
+}
+
+.theme-blueprint {
+  @apply text-slate-300 font-mono;
+  background-color: var(--color-blueprint-bg);
 }
 
 .reveal-on-scroll {
@@ -57,4 +62,24 @@ body {
 .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Blog Typography System */
+.prose-blog {
+  @apply prose prose-lg prose-slate max-w-none font-sans;
+  /* Headings */
+  @apply prose-headings:font-display prose-headings:font-bold prose-headings:text-slate-900 prose-headings:tracking-tight;
+  /* Body */
+  @apply prose-p:text-slate-700 prose-p:leading-relaxed prose-p:font-sans;
+  /* Lists */
+  @apply prose-ul:font-sans prose-ol:font-sans prose-li:font-sans prose-li:text-slate-700;
+  /* Links */
+  @apply prose-a:text-cyan-700 prose-a:font-medium prose-a:no-underline prose-a:border-b-2 prose-a:border-cyan-200 hover:prose-a:border-cyan-600 prose-a:transition-colors;
+  /* Images */
+  @apply prose-img:rounded-lg prose-img:shadow-md;
+  /* Blockquotes */
+  @apply prose-blockquote:border-l-cyan-500 prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-sm prose-blockquote:not-italic;
+  /* Code */
+  @apply prose-code:text-cyan-700 prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded-sm prose-code:before:content-none prose-code:after:content-none;
+  @apply prose-pre:bg-[#0a192f] prose-pre:border prose-pre:border-slate-800;
 }

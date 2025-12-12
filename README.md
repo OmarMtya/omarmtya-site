@@ -102,7 +102,7 @@ npm run validate:seo
 
 ### Vía Keystatic CMS
 
-1. Accede a `/keystatic` en desarrollo
+1. Accede a `/admin` en desarrollo (alias de `/keystatic`)
 2. Crea nuevo post en la colección "Blog"
 3. Completa todos los campos SEO:
    - Title (< 60 caracteres)
@@ -178,7 +178,7 @@ npm run preview         # Test local del build
 npm run validate:seo    # Verifica configuración SEO
 
 # Keystatic CMS
-# Acceder a /keystatic en modo desarrollo
+# Acceder a /admin en modo desarrollo
 ```
 
 ## 🚀 Deployment

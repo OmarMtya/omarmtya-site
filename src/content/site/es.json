@@ -3,22 +3,24 @@
   "hero": {
     "status": "ESTADO.SIS: EN LÍNEA",
     "location": "UBIC: MÉXICO",
-    "id": "ID: OMAR_MTYA",
-    "label": "// PERFIL_DESARROLLADOR",
+    "id": "ID: OMAR MTYA",
+    "label": "// PERFIL DESARROLLADOR",
     "title": "OMAR MONTOYA",
     "role": "DESARROLLADOR DE SOFTWARE",
     "description": "Desarrollo a la medida potenciado con IA. Desde automatización empresarial hasta backends escalables. Convirtiendo ideas en realidad.",
-    "btn_modules": "VER_MÓDULOS",
-    "btn_github": "REPO_GITHUB"
+    "btn_modules": "VER MÓDULOS",
+    "btn_github": "REPO GITHUB",
+    "btn_x": "SEGUIR EN X",
+    "x_url": "https://x.com/omarxcode"
   },
   "about": {
     "id": "ID: 0x9281",
-    "auth": "AUT: NIVEL_5",
-    "title": "FILOSOFÍA_DESARROLLO",
+    "auth": "AUT: NIVEL 5",
+    "title": "FILOSOFÍA DESARROLLO",
     "p1_strong": "El código solo es bueno si resuelve el problema.",
     "p1": "Construyo software que escala. Ya seas una startup en crecimiento o una empresa buscando modernizarse, entrego soluciones limpias y mantenibles que crecen con tu negocio. Me enfoco en crear sistemas rápidos, confiables y diseñados para perdurar.",
     "p2": "Mi experiencia abarca desarrollo full-stack y automatización de procesos. Utilizo técnicas de desarrollo potenciadas con IA para acelerar entregas sin comprometer la calidad. Para empresas que necesitan soluciones custom desde cero, arquitecto y construyo backends y frontends completos. Para equipos que buscan automatización, aprovecho herramientas como n8n para optimizar operaciones y reducir trabajo manual.",
-    "stack_title": "STACK_PRINCIPAL",
+    "stack_title": "STACK PRINCIPAL",
     "stack": [
       "> Angular / Vue",
       "> TypeScript / JavaScript",
@@ -32,7 +34,7 @@
       "> Soluciones Personalizadas",
       "> Automatización de Procesos"
     ],
-    "certs_title": "// PROTOCOLOS_AUTORIZADOS (CERTIFICACIONES)",
+    "certs_title": "// PROTOCOLOS AUTORIZADOS (CERTIFICACIONES)",
     "certs": [
       "Vue School - Certified Senior Angular Developer",
       "W3Schools - Node.js",
@@ -43,22 +45,22 @@
     "viewAllPosts": "Ver Todos los Artículos"
   },
   "projects": {
-    "title": "MÓDULOS_DEL_SISTEMA",
+    "title": "MÓDULOS DEL SISTEMA",
     "version": "v1.0.0",
     "empty_message": "No hay proyectos activos en este momento.",
     "list": []
   },
   "notFound": {
     "code": "404",
-    "title": "ERROR_DEL_SISTEMA",
+    "title": "ERROR DEL SISTEMA",
     "message": "El módulo solicitado no pudo ser encontrado en la memoria del sistema.",
-    "back_home": "VOLVER_A_BASE"
+    "back_home": "VOLVER A BASE"
   },
   "footer": {
-    "brand": "OMAR_MONTOYA",
+    "brand": "OMAR MONTOYA",
     "description": "Construyendo software escalable y automatizando flujos de trabajo. \nBasado en México.",
     "connect_title": "// CONECTAR",
-    "status_title": "// ESTADO_SISTEMA",
+    "status_title": "// ESTADO SISTEMA",
     "status_avail_label": "DISPONIBILIDAD:",
     "status_avail_value": "DISPONIBLE",
     "status_update_label": "ULT_ACTUALIZACIÓN:",

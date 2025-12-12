@@ -28,6 +28,7 @@ export default defineConfig({
       },
       filter: (page) => 
         !page.includes('/keystatic') && 
+        !page.includes('/admin') &&
         !page.includes('/api/')
     })
   ],

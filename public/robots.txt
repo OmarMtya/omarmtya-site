@@ -4,6 +4,7 @@ Allow: /
 
 # Bloquear archivos sensibles
 Disallow: /keystatic/
+Disallow: /admin/
 Disallow: /_astro/
 Disallow: /api/
 

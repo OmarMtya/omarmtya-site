@@ -3,22 +3,24 @@
   "hero": {
     "status": "SYS.STATUS: ONLINE",
     "location": "LOC: MEXICO",
-    "id": "ID: OMAR_MTYA",
-    "label": "// DEVELOPER_PROFILE",
+    "id": "ID: OMAR MTYA",
+    "label": "// DEVELOPER PROFILE",
     "title": "OMAR MONTOYA",
     "role": "SOFTWARE DEVELOPER",
     "description": "Building custom solutions powered by AI. From enterprise automation to scalable backends. Turning ideas into reality.",
-    "btn_modules": "VIEW_MODULES",
-    "btn_github": "GITHUB_REPO"
+    "btn_modules": "VIEW MODULES",
+    "btn_github": "GITHUB REPO",
+    "btn_x": "FOLLOW ON X",
+    "x_url": "https://x.com/omarxcode"
   },
   "about": {
     "id": "ID: 0x9281",
-    "auth": "AUTH: LEVEL_5",
-    "title": "DEVELOPMENT_PHILOSOPHY",
+    "auth": "AUTH: LEVEL 5",
+    "title": "DEVELOPMENT PHILOSOPHY",
     "p1_strong": "Code is only as good as the problem it solves.",
     "p1": "I build software that scales. Whether you're a growing startup or an enterprise looking to modernize, I deliver clean, maintainable solutions that grow with your business. I focus on creating systems that are fast, reliable, and built to last.",
     "p2": "My expertise spans full-stack development and process automation. I use AI-powered development techniques to accelerate delivery without compromising quality. For enterprises seeking custom solutions from scratch, I architect and build complete backends and frontends. For teams needing automation, I leverage tools like n8n to streamline operations and reduce manual work.",
-    "stack_title": "CORE_STACK",
+    "stack_title": "CORE STACK",
     "stack": [
       "> Angular / Vue",
       "> TypeScript / JavaScript",
@@ -32,7 +34,7 @@
       "> Custom Solutions",
       "> Process Automation"
     ],
-    "certs_title": "// AUTHORIZED_PROTOCOLS (CERTIFICATIONS)",
+    "certs_title": "// AUTHORIZED PROTOCOLS (CERTIFICATIONS)",
     "certs": [
       "Vue School - Certified Senior Angular Developer",
       "W3Schools - Node.js",
@@ -43,24 +45,24 @@
     "viewAllPosts": "View All Articles"
   },
   "projects": {
-    "title": "SYSTEM_MODULES",
+    "title": "SYSTEM MODULES",
     "version": "v1.0.0",
     "empty_message": "No active projects at the moment.",
     "list": []
   },
   "notFound": {
     "code": "404",
-    "title": "SYSTEM_ERROR",
+    "title": "SYSTEM ERROR",
     "message": "The requested module could not be found in the system memory.",
-    "back_home": "RETURN_TO_BASE"
+    "back_home": "RETURN TO BASE"
   },
   "footer": {
-    "brand": "OMAR_MONTOYA",
+    "brand": "OMAR MONTOYA",
     "description": "Building scalable software and automating workflows. \nBased in Mexico.",
     "connect_title": "// CONNECT",
-    "status_title": "// SYSTEM_STATUS",
+    "status_title": "// SYSTEM STATUS",
     "status_avail_label": "AVAILABILITY:",
-    "status_avail_value": "OPEN_TO_WORK",
+    "status_avail_value": "OPEN TO WORK",
     "status_update_label": "LAST_UPDATE:",
     "status_update_value": "DEC_2025",
     "status_version_label": "VERSION:",

@@ -1,7 +1,7 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
-import BlogList from '../../components/BlogList.vue';
+import BlogListLight from '../../components/BlogListLight.vue';
 
 const POSTS_PER_PAGE = 9;
 
@@ -12,11 +12,11 @@ const currentPage = Number(Astro.url.searchParams.get('page') || '1');
 const allPosts = await getCollection('blog');
 ---
 
-<MainLayout 
+<BlogLayout 
   title="Blog | Omar Montoya - Tech Articles & Insights"
   description="Articles about software development, AI, automation, and solutions architecture. Tips, tutorials, and insights from a full-stack developer."
   lang="en"
   type="website"
 >
-  <BlogList client:load posts={allPosts} currentPage={currentPage} postsPerPage={POSTS_PER_PAGE} />
-</MainLayout>
+  <BlogListLight client:load posts={allPosts} currentPage={currentPage} postsPerPage={POSTS_PER_PAGE} />
+</BlogLayout>

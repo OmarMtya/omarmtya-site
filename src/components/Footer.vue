@@ -53,6 +53,11 @@
         <!-- Status -->
         <div>
           <h4 class="text-[var(--color-blueprint-accent)] text-xs font-bold mb-4 tracking-widest">{{ content.status_title }}</h4>
+          
+          <div class="mb-6">
+            <LanguageSwitcher client:visible variant="inline-blueprint" />
+          </div>
+
           <div class="glass-panel p-4 text-xs font-mono space-y-2">
             <div class="flex justify-between">
               <span class="text-slate-500">{{ content.status_avail_label }}</span>
@@ -71,7 +76,7 @@
 
       </div>
 
-      <div class="mt-12 pt-8 border-t border-[var(--color-blueprint-grid)] text-center text-xs text-slate-600">
+      <div class="mt-12 pt-8 border-t border-blueprint-grid text-center text-xs text-slate-600">
         <p>{{ content.copyright }}</p>
       </div>
     </div>
@@ -81,6 +86,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useHydratedLang } from '../composables/useHydratedLang';
+import LanguageSwitcher from './LanguageSwitcher.vue';
 
 const props = defineProps({
   siteData: {

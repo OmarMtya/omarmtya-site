@@ -11,7 +11,6 @@ interface Props {
 	imageAlt?: string;
 	lang?: 'en' | 'es';
 	hideLanguageSwitcher?: boolean;
-	// SEO específico para artículos
 	type?: 'website' | 'article';
 	author?: string;
 	pubDate?: Date;
@@ -19,13 +18,12 @@ interface Props {
 	tags?: string[];
 	canonical?: string;
 	noindex?: boolean;
-	// Schema.org data
 	schemaData?: WebsiteSchema | ArticleSchema;
 }
 
 const { 
 	title, 
-	description = 'Omar Montoya - Solutions Architect & Full-Stack Developer. Building custom software solutions powered by AI, from enterprise automation to scalable backends.',
+	description = 'Omar Montoya - Solutions Architect & Full-Stack Developer.',
 	image,
 	imageAlt,
 	lang = 'en',
@@ -53,7 +51,6 @@ const {
 		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 		<title>{title}</title>
 		
-		<!-- SEO Component -->
 		<SEO 
 			title={title}
 			description={description}
@@ -69,7 +66,6 @@ const {
 			noindex={noindex}
 		/>
 
-		<!-- Schema.org Structured Data -->
 		{schemaData && (
 			<SchemaOrg 
 				type={type}
@@ -79,13 +75,13 @@ const {
 		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body class="relative overflow-x-hidden theme-blueprint">
-		<div class="fixed inset-0 pointer-events-none z-0 bg-blueprint animate-scan opacity-50"></div>
-		<div class="fixed inset-0 pointer-events-none z-0 bg-linear-to-b from-transparent to-blueprint-bg"></div>
+	<body class="relative overflow-x-hidden bg-[#FFFEF8] text-slate-900 font-sans antialiased selection:bg-yellow-200 selection:text-black">
 		
-		<main class="relative z-10 container mx-auto px-4 py-8">
+		{!hideLanguageSwitcher && <LanguageSwitcher client:load variant="minimal" />}
+
+		<main class="relative z-10 container mx-auto px-4 pb-8 pt-0">
 			<slot />
 		</main>
 	</body>

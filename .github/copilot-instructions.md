@@ -87,13 +87,13 @@ npm run preview      # Test production build locally
 - Environment: `NODE_ENV=production`, `PORT=4321`
 
 ### Keystatic CMS Access
-- Development: `/keystatic` route (requires GitHub OAuth setup)
+- Development: `/admin` route (alias of `/keystatic`, requires GitHub OAuth setup)
 - Manages blog posts and site translations via GitHub storage
 
 ## Common Tasks
 
 ### Adding a New Blog Post
-1. Create in Keystatic UI at `/keystatic` OR manually in `src/content/blog/`
+1. Create in Keystatic UI at `/admin` (alias of `/keystatic`) OR manually in `src/content/blog/`
 2. Set `lang: 'en'` or `'es'` field
 3. Images go in `src/assets/blog/{post-slug}/`
 4. Use Markdown with frontmatter (title, pubDate, description, author, tags, lang, image)

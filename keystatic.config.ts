@@ -66,6 +66,8 @@ export default config({
           description: fields.text({ label: 'Description', multiline: true }),
           btn_modules: fields.text({ label: 'Button Modules' }),
           btn_github: fields.text({ label: 'Button GitHub' }),
+          btn_x: fields.text({ label: 'Button X (Text)' }),
+          x_url: fields.text({ label: 'X URL' }),
         }, { label: 'Hero Section' }),
         about: fields.object({
           id: fields.text({ label: 'ID' }),

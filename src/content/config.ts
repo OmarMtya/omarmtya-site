@@ -31,7 +31,9 @@ const siteCollection = defineCollection({
       role: z.string(),
       description: z.string(),
       btn_modules: z.string(),
-      btn_github: z.string()
+      btn_github: z.string(),
+      btn_x: z.string(),
+      x_url: z.string().url()
     }),
     about: z.object({
       id: z.string(),

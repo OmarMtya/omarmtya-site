@@ -57,10 +57,7 @@ const formatDate = (date) => {
 
 <template>
   <section id="blog" class="py-20 relative overflow-hidden">
-    <!-- Background Grid -->
-    <div class="absolute inset-0 pointer-events-none opacity-10"
-         style="background-image: linear-gradient(#64ffda 1px, transparent 1px), linear-gradient(90deg, #64ffda 1px, transparent 1px); background-size: 50px 50px;">
-    </div>
+
 
     <div class="max-w-6xl mx-auto px-4 relative z-10">
       <div class="flex items-center gap-4 mb-12">

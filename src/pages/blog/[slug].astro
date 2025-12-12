@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import MainLayout from '../../layouts/MainLayout.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
 import { Image } from 'astro:assets';
+import Comments from '../../components/Comments.vue';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -42,7 +43,7 @@ const schemaData = {
 };
 ---
 
-<MainLayout 
+<BlogLayout 
   title={`${entry.data.title} | Omar Montoya`} 
   description={entry.data.description}
   image={imageURL}
@@ -57,51 +58,65 @@ const schemaData = {
   hideLanguageSwitcher={true}
   schemaData={schemaData}
 >
-  <article class="py-8 md:py-16 min-h-screen relative overflow-hidden">
-     <!-- Background Grid -->
-     <div class="absolute inset-0 pointer-events-none opacity-5"
-     style="background-image: linear-gradient(#64ffda 1px, transparent 1px), linear-gradient(90deg, #64ffda 1px, transparent 1px); background-size: 40px 40px;">
-    </div>
-
-    <div class="max-w-3xl mx-auto px-4 relative z-10">
-      <a href="/blog" class="inline-flex items-center gap-2 text-cyan-400 mb-8 hover:underline decoration-cyan-400/50 underline-offset-4">
+  <article class="py-4 md:py-8 min-h-screen relative">
+    <div class="max-w-3xl mx-auto px-4">
+      <a href="/blog" class="inline-flex items-center gap-2 text-slate-500 mb-8 hover:text-cyan-700 transition-colors font-sans text-sm font-medium">
         &larr; {t.backToBlog}
       </a>
 
-      <header class="mb-12 border-b border-cyan-500/30 pb-8">
+      <header class="mb-12 border-b border-slate-200 pb-8">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 leading-tight tracking-tight font-display">
+          {entry.data.title}
+        </h1>
+
+        <div class="flex items-center gap-4 mb-8">
+          <img 
+            src="https://github.com/omarmtya.png" 
+            alt={entry.data.author} 
+            class="w-12 h-12 rounded-full border border-slate-100"
+          />
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+              <span class="capitalize text-slate-900 font-sans font-medium">{entry.data.author}</span>
+              <span class="text-slate-300 text-xs">•</span>
+              <a href="https://x.com/omarxcode" target="_blank" rel="noopener noreferrer" class="text-cyan-700 text-sm hover:underline">Follow</a>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-500 font-sans">
+              <time datetime={entry.data.pubDate.toISOString()}>
+                {entry.data.pubDate.toLocaleDateString(entry.data.lang === 'es' ? 'es-ES' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-2 mb-8">
+          {entry.data.tags.map(tag => (
+            <span class="px-3 py-1 text-xs font-sans font-medium text-cyan-700 bg-cyan-50 rounded-full border border-cyan-100">
+              #{tag}
+            </span>
+          ))}
+        </div>
+
         {entry.data.image && (
-          <div class="mb-8 -mx-4 md:mx-0 rounded-lg overflow-hidden border border-cyan-500/20">
+          <div class="rounded-lg overflow-hidden shadow-md">
             <Image 
               src={entry.data.image} 
               alt={entry.data.title}
               width={1200}
               height={600}
-              class="w-full h-64 md:h-96 object-cover"
+              class="w-full h-auto object-cover"
             />
           </div>
         )}
-        <div class="flex items-center gap-4 text-sm text-cyan-300 font-mono mb-4">
-          <time datetime={entry.data.pubDate.toISOString()}>
-            {entry.data.pubDate.toLocaleDateString(entry.data.lang === 'es' ? 'es-ES' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </time>
-          <span>•</span>
-          <span>{entry.data.author}</span>
-        </div>
-        <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight">
-          {entry.data.title}
-        </h1>
-        <div class="flex gap-2">
-          {entry.data.tags.map(tag => (
-            <span class="px-3 py-1 text-xs font-mono text-cyan-300 border border-cyan-500/30 rounded-full bg-cyan-900/10">
-              #{tag}
-            </span>
-          ))}
-        </div>
       </header>
 
-      <div class="prose prose-invert prose-cyan max-w-none prose-headings:text-slate-100 prose-p:text-slate-400 prose-a:text-cyan-400 hover:prose-a:text-cyan-300 prose-code:text-cyan-300 prose-pre:bg-[#112240] prose-pre:border prose-pre:border-cyan-500/20">
+      <div class="prose-blog">
         <Content />
+      </div>
+
+      <div class="mt-4 pt-8 border-t border-slate-200">
+         <Comments client:visible lang={entry.data.lang} />
       </div>
     </div>
   </article>
-</MainLayout>
+</BlogLayout>
