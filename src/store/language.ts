@@ -1,28 +1,28 @@
 import { atom } from 'nanostores';
 
-// Detect initial language on client-side only
-function getInitialLang(): 'en' | 'es' {
-  if (typeof window === 'undefined') return 'en';
-  
-  // Read from localStorage first
-  const stored = localStorage.getItem('lang');
-  if (stored === 'en' || stored === 'es') {
-    return stored;
-  }
-  
-  // Fallback to browser language
-  if (navigator.language.startsWith('es')) {
-    return 'es';
-  }
-  
-  return 'en';
-}
+// IMPORTANT:
+// Keep the initial language deterministic between SSR and the client's first render
+// to avoid Vue hydration mismatches. We always start with 'en' and then, on the
+// client only, we initialize from localStorage / navigator language.
+export const currentLang = atom<'en' | 'es'>('en');
 
-export const currentLang = atom<'en' | 'es'>(getInitialLang());
+let didInit = false;
 
 export const initLanguage = () => {
-  // This is now a no-op since initialization happens in getInitialLang
-  // Kept for backward compatibility
+  if (didInit) return;
+  didInit = true;
+
+  if (typeof window === 'undefined') return;
+
+  const stored = localStorage.getItem('lang');
+  if (stored === 'en' || stored === 'es') {
+    currentLang.set(stored);
+    return;
+  }
+
+  if (navigator.language?.startsWith('es')) {
+    currentLang.set('es');
+  }
 };
 
 export const setLang = (lang: 'en' | 'es') => {

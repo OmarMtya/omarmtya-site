@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, onMounted, watch } from 'vue';
 import { useHydratedLang } from '../composables/useHydratedLang';
 
 const props = defineProps({
@@ -14,6 +14,24 @@ const props = defineProps({
   postsPerPage: {
     type: Number,
     default: 9
+  }
+});
+
+const activePage = ref(props.currentPage);
+
+watch(
+  () => props.currentPage,
+  (next) => {
+    activePage.value = next;
+  }
+);
+
+onMounted(() => {
+  // Fallback to URL for any client-side navigation / refresh quirks
+  const urlParams = new URLSearchParams(window.location.search);
+  const pageFromUrl = Number(urlParams.get('page') || '1');
+  if (!Number.isNaN(pageFromUrl) && pageFromUrl !== activePage.value) {
+    activePage.value = pageFromUrl;
   }
 });
 
@@ -52,10 +70,35 @@ const filteredPosts = computed(() => {
 // Pagination calculations
 const totalPosts = computed(() => filteredPosts.value.length);
 const totalPages = computed(() => Math.ceil(totalPosts.value / props.postsPerPage));
-const startIndex = computed(() => (props.currentPage - 1) * props.postsPerPage);
+const startIndex = computed(() => (activePage.value - 1) * props.postsPerPage);
 const endIndex = computed(() => startIndex.value + props.postsPerPage);
 const paginatedPosts = computed(() => filteredPosts.value.slice(startIndex.value, endIndex.value));
-const pageNumbers = computed(() => Array.from({ length: totalPages.value }, (_, i) => i + 1));
+const visiblePageNumbers = computed(() => {
+  const maxButtons = 5;
+  const pages = totalPages.value;
+
+  if (pages <= maxButtons) {
+    return Array.from({ length: pages }, (_, i) => i + 1);
+  }
+
+  const half = Math.floor(maxButtons / 2); // 2 when maxButtons=5
+  let start = activePage.value - half;
+  let end = activePage.value + half;
+
+  if (start < 1) {
+    start = 1;
+    end = maxButtons;
+  }
+
+  if (end > pages) {
+    end = pages;
+    start = pages - maxButtons + 1;
+  }
+
+  const result = [];
+  for (let p = start; p <= end; p++) result.push(p);
+  return result;
+});
 
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString($lang.value === 'es' ? 'es-ES' : 'en-US', {
@@ -134,8 +177,8 @@ const formatDate = (date) => {
         <nav v-if="totalPages > 1" class="flex justify-center items-center gap-2 font-sans">
           <!-- Previous Button -->
           <a 
-            v-if="currentPage > 1"
-            :href="`/blog?page=${currentPage - 1}`"
+            v-if="activePage > 1"
+            :href="`/blog?page=${activePage - 1}`"
             class="flex items-center gap-1 px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded hover:bg-slate-50 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -154,21 +197,26 @@ const formatDate = (date) => {
           </span>
 
           <!-- Page Numbers -->
-          <span 
-            v-for="pageNum in pageNumbers" 
-            :key="pageNum"
-            :class="pageNum === currentPage ? 'px-4 py-2 bg-slate-900 text-white font-bold rounded' : 'px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded hover:bg-slate-50 transition-colors'"
-          >
-            <a v-if="pageNum !== currentPage" :href="`/blog?page=${pageNum}`">
+          <template v-for="pageNum in visiblePageNumbers" :key="pageNum">
+            <a
+              v-if="pageNum !== activePage"
+              :href="`/blog?page=${pageNum}`"
+              class="px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded hover:bg-slate-50 transition-colors"
+            >
               {{ pageNum }}
             </a>
-            <span v-else>{{ pageNum }}</span>
-          </span>
+            <span
+              v-else
+              class="px-4 py-2 bg-slate-900 text-white font-bold rounded"
+            >
+              {{ pageNum }}
+            </span>
+          </template>
 
           <!-- Next Button -->
           <a 
-            v-if="currentPage < totalPages"
-            :href="`/blog?page=${currentPage + 1}`"
+            v-if="activePage < totalPages"
+            :href="`/blog?page=${activePage + 1}`"
             class="flex items-center gap-1 px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded hover:bg-slate-50 transition-colors"
           >
             {{ t.next }}

@@ -3,7 +3,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
 import BlogListLight from '../../components/BlogListLight.vue';
 
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 1;
 
 // Get current page from URL params
 const currentPage = Number(Astro.url.searchParams.get('page') || '1');
@@ -18,5 +18,5 @@ const allPosts = await getCollection('blog');
   lang="en"
   type="website"
 >
-  <BlogListLight client:only="vue" posts={allPosts} currentPage={currentPage} postsPerPage={POSTS_PER_PAGE} />
+  <BlogListLight client:load posts={allPosts} currentPage={currentPage} postsPerPage={POSTS_PER_PAGE} />
 </BlogLayout>
