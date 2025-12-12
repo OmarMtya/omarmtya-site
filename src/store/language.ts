@@ -1,6 +1,8 @@
 import { atom } from 'nanostores';
 
-export const currentLang = atom<'en' | 'es'>('en');
+// Initialize with value from inline script if available, otherwise default to 'en'
+const initialLang = (typeof window !== 'undefined' && (window as any).__INITIAL_LANG__) || 'en';
+export const currentLang = atom<'en' | 'es'>(initialLang);
 
 export const initLanguage = () => {
   if (typeof window === 'undefined') return;
@@ -13,7 +15,7 @@ export const initLanguage = () => {
     lang = 'es';
   }
 
-  if (lang !== 'en') {
+  if (lang !== currentLang.get()) {
     currentLang.set(lang);
   }
 };
