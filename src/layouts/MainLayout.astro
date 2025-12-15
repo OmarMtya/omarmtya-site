@@ -102,19 +102,13 @@ const {
 			}
 		</style>
 
-		<!-- Microsoft Clarity (prod only, via npm) -->
-		<script is:inline type="module">
-			if (import.meta.env && import.meta.env.PROD) {
-				const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID || 'ulpurl0p26';
-				import('clarity-js').then((mod) => {
-					const clarity = mod.default ?? mod;
-					try {
-						clarity(CLARITY_ID);
-					} catch (e) {
-						console.warn('Clarity init failed', e);
-					}
-				});
-			}
+		<!-- Microsoft Clarity (prod only, via CDN) -->
+		<script is:inline>
+			(function(c,l,a,r,i,t,y){
+				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+				t=l.createElement(r);t.async=1;t.src="https://web.clarity.ms/tag/"+i;
+				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+			})(window, document, "clarity", "script", "ulpurl0p26");
 		</script>
 	</head>
 	<body class="relative overflow-x-hidden theme-blueprint">
