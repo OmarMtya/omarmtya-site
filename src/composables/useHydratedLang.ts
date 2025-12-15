@@ -2,7 +2,7 @@ import { ref, onMounted, computed } from 'vue';
 import { useStore } from '@nanostores/vue';
 import { currentLang, initLanguage } from '../store/language';
 
-export function useHydratedLang() {
+export function useHydratedLang(initialLang: 'en' | 'es' = 'en') {
   const $lang = useStore(currentLang);
   const isMounted = ref(false);
   
@@ -11,6 +11,6 @@ export function useHydratedLang() {
     isMounted.value = true;
   });
   
-  // Return 'en' until mounted to prevent SSR/client hydration mismatches.
-  return computed(() => (isMounted.value ? $lang.value : 'en'));
+  // Use server-provided lang until hydrated to keep SSR and client in sync.
+  return computed(() => (isMounted.value ? $lang.value : initialLang));
 }

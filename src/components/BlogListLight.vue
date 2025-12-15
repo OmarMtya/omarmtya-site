@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed, ref, onMounted, watch } from 'vue';
 import { useHydratedLang } from '../composables/useHydratedLang';
 
@@ -14,6 +14,10 @@ const props = defineProps({
   postsPerPage: {
     type: Number,
     default: 9
+  },
+  initialLang: {
+    type: String,
+    default: 'en'
   }
 });
 
@@ -35,7 +39,7 @@ onMounted(() => {
   }
 });
 
-const $lang = useHydratedLang();
+const $lang = useHydratedLang(props.initialLang as 'en' | 'es');
 
 const translations = {
   en: {

@@ -101,6 +101,21 @@ const {
 				transition: opacity 0.15s ease-in;
 			}
 		</style>
+
+		<!-- Microsoft Clarity (prod only, via npm) -->
+		<script is:inline type="module">
+			if (import.meta.env && import.meta.env.PROD) {
+				const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID || 'ulpurl0p26';
+				import('clarity-js').then((mod) => {
+					const clarity = mod.default ?? mod;
+					try {
+						clarity(CLARITY_ID);
+					} catch (e) {
+						console.warn('Clarity init failed', e);
+					}
+				});
+			}
+		</script>
 	</head>
 	<body class="relative overflow-x-hidden theme-blueprint">
 		<div class="fixed inset-0 pointer-events-none z-0 bg-blueprint animate-scan opacity-50"></div>

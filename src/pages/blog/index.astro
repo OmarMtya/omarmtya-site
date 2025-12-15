@@ -5,6 +5,14 @@ import BlogListLight from '../../components/BlogListLight.vue';
 
 const POSTS_PER_PAGE = 10;
 
+const searchLang = Astro.url.searchParams.get('lang');
+const pathLang = Astro.url.pathname.split('/').filter(Boolean)[0];
+const lang = searchLang === 'es' || searchLang === 'en'
+  ? searchLang
+  : pathLang === 'es'
+    ? 'es'
+    : 'en';
+
 // Get current page from URL params
 const currentPage = Number(Astro.url.searchParams.get('page') || '1');
 
@@ -15,8 +23,14 @@ const allPosts = await getCollection('blog');
 <BlogLayout 
   title="Blog | Omar Montoya - Tech Articles & Insights"
   description="Articles about software development, AI, automation, and solutions architecture. Tips, tutorials, and insights from a full-stack developer."
-  lang="en"
+  lang={lang}
   type="website"
 >
-  <BlogListLight client:load posts={allPosts} currentPage={currentPage} postsPerPage={POSTS_PER_PAGE} />
+  <BlogListLight 
+    client:load 
+    posts={allPosts} 
+    currentPage={currentPage} 
+    postsPerPage={POSTS_PER_PAGE}
+    initialLang={lang}
+  />
 </BlogLayout>

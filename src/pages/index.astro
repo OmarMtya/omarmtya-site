@@ -11,6 +11,14 @@ const posts = await getCollection('blog');
 const enSite = await getEntry('site', 'en');
 const esSite = await getEntry('site', 'es');
 
+const searchLang = Astro.url.searchParams.get('lang');
+const pathLang = Astro.url.pathname.split('/').filter(Boolean)[0];
+const lang = searchLang === 'es' || searchLang === 'en'
+  ? searchLang
+  : pathLang === 'es'
+    ? 'es'
+    : 'en';
+
 if (!enSite || !esSite) {
   throw new Error("Site data not found");
 }
@@ -38,7 +46,7 @@ const schemaData = {
 <MainLayout 
   title="Omar Montoya | Solutions Architect & Full-Stack Developer"
   description="Solutions Architect & Full-Stack Developer specializing in AI-powered development, enterprise automation, and scalable backends. Custom software solutions with Angular, Vue, NestJS, and n8n."
-  lang="en"
+  lang={lang}
   type="website"
   schemaData={schemaData}
 >
