@@ -48,7 +48,22 @@
     "title": "MÓDULOS DEL SISTEMA",
     "version": "v1.0.0",
     "empty_message": "No hay proyectos activos en este momento.",
-    "list": []
+    "list": [
+      {
+        "title": "Chip",
+        "type": "app",
+        "description": "App que detecta movimientos financieros desde correos y notificaciones para que el usuario no necesite registrar gastos manualmente.",
+        "tech": [
+          "Angular",
+          "NestJS",
+          "Socket.io",
+          "Redis",
+          "Docker"
+        ],
+        "link": "https://chipapp.mx",
+        "cta": "Conocer más"
+      }
+    ]
   },
   "notFound": {
     "code": "404",
