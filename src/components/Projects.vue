@@ -58,7 +58,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from 'vue';
+import { onMounted, ref, computed, nextTick } from 'vue';
 import { useHydratedLang } from '../composables/useHydratedLang';
 
 const props = defineProps({
@@ -75,15 +75,17 @@ const headerRef = ref(null);
 const projectRefs = ref([]);
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-      }
-    });
-  }, { threshold: 0.1 });
+  nextTick(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  if (headerRef.value) observer.observe(headerRef.value);
-  projectRefs.value.forEach(el => observer.observe(el));
+    if (headerRef.value) observer.observe(headerRef.value);
+    projectRefs.value.forEach(el => observer.observe(el));
+  });
 });
 </script>
