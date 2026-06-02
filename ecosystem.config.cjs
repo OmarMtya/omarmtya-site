@@ -1,6 +1,5 @@
 // PM2 configuration for production
-// Load .env file if exists
-require('fs').existsSync('.env') && require('dotenv').config();
+try { require('dotenv').config(); } catch {} // Load .env if available
 
 module.exports = {
   apps: [{
