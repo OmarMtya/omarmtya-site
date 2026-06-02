@@ -48,7 +48,22 @@
     "title": "SYSTEM MODULES",
     "version": "v1.0.0",
     "empty_message": "No active projects at the moment.",
-    "list": []
+    "list": [
+      {
+        "title": "Chip",
+        "type": "app",
+        "description": "App that detects financial movements from emails and notifications so users don't need to manually register expenses. Available in Mexico.",
+        "tech": [
+          "Angular",
+          "NestJS",
+          "Socket.io",
+          "Redis",
+          "Docker"
+        ],
+        "link": "https://chipapp.mx",
+        "cta": "Try"
+      }
+    ]
   },
   "notFound": {
     "code": "404",
