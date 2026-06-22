@@ -2,8 +2,8 @@
 title: Cuando el precio no refleja el valor
 pubDate: 2026-06-22T13:12:00.000Z
 description: >-
-  La estafa de los descuentos y precios más baratos de empresas que no conocemos
-  termina siendo más caro de lo que es
+  Una reflexión sobre cómo la confianza y el servicio pueden valer mucho más que
+  un descuento
 author: Omar Montoya
 tags:
   - opiniones
