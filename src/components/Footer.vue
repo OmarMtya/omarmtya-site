@@ -42,7 +42,7 @@
               </a>
             </li>
             <li>
-              <a href="https://x.com/omarxcode" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group">
+              <a href="https://x.com/omarmtya" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group">
                 <span class="opacity-0 group-hover:opacity-100 text-[var(--color-blueprint-accent)]">></span>
                 X (Twitter)
               </a>
