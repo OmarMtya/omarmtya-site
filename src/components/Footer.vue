@@ -77,7 +77,7 @@
       </div>
 
       <div class="mt-12 pt-8 border-t border-blueprint-grid text-center text-xs text-slate-600">
-        <p>{{ content.copyright }}</p>
+        <p>{{ copyright }}</p>
       </div>
     </div>
   </footer>
@@ -97,4 +97,7 @@ const props = defineProps({
 
 const $lang = useHydratedLang();
 const content = computed(() => props.siteData[$lang.value].footer);
+const copyright = computed(() =>
+  content.value.copyright.replace(/\b\d{4}\b/, String(new Date().getFullYear()))
+);
 </script>
