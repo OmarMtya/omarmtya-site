@@ -66,13 +66,13 @@
       {
         "title": "Mi Libro Sorpresa",
         "type": "plataforma",
-        "description": "App que utiliza un sistema híbrido de recomendación basado en un modelo explícito del lector. En lugar de aprender únicamente qué libros gustan, aprende cómo evoluciona el perfil del lector mediante retroalimentación estructurada",
+        "description": "Plataforma de venta de libros sorpresa, que utiliza un algoritmo de recomendación de libros basado en respuestas del usuario y retroalimentación",
         "tech": [
           "Angular",
           "NestJS",
           "Docker"
         ],
-        "link": "milibrosorpresa.com",
+        "link": "https://milibrosorpresa.com",
         "cta": "Visitar"
       }
     ]
