@@ -61,7 +61,19 @@
           "Docker"
         ],
         "link": "https://chipapp.mx",
-        "cta": "Probar"
+        "cta": "Visitar"
+      },
+      {
+        "title": "Mi Libro Sorpresa",
+        "type": "plataforma",
+        "description": "App que utiliza un sistema híbrido de recomendación basado en un modelo explícito del lector. En lugar de aprender únicamente qué libros gustan, aprende cómo evoluciona el perfil del lector mediante retroalimentación estructurada",
+        "tech": [
+          "Angular",
+          "NestJS",
+          "Docker"
+        ],
+        "link": "milibrosorpresa.com",
+        "cta": "Visitar"
       }
     ]
   },
